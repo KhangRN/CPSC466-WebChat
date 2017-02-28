@@ -1,15 +1,110 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<h1 align="center">Register</h1>
+<style>
+
+input[type=text],select,input[type=password]{
+	/*background-image:url(C:/Users/KOMAL/Desktop/vellum-seamless-repeating-white.jpg);*/
+	color:Blue;
+	text-align:center;
+	width: 20%;
+    padding: 12px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 15%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+	float:centre;
+}
+</style>
+
+<div align="center">
+	<h1>CSUF CHAT REGISTER</h1>
+</div>
+
 
 {% if error is defined %}
 <h3 align="center">{{error}}</h3>
 {% endif %}
 
-<form method="POST" action="{{ url('registerAction') }}">
-    <input type="text" name="new-email" placeholder="email"/>
-    <input type="password" name="new-password" placeholder="password"/>
-    <button type="submit">Register</button>
-</form>
+<div align="center">
+    <form method="POST" action="{{ url('registerAction') }}">
+        
+        <input type="text" name="FirstName" placeholder="First Name"><br>
+        <input type="text" name="LastName" placeholder="Last Name"><br>
+
+        <!--Email Text Box-->
+        <input type="text" name="Email" placeholder="Email @csu.fullerton.edu"><br>
+        
+        <!--input type="text" name="new-email" placeholder="email"/>
+        <input type="password" name="new-password" placeholder="password"/-->
+        
+        <select name="Major">
+            <option value="American Studies">American Studies</option>
+            <option value="Anthropology">Anthropology</option>
+            <option value="Art">Art</option>
+            <option value="Biochemistry">Biochemistry</option>
+            <option value="Biologial Science">Biologial Science</option>
+            <option value="Business Administration">Business Administration</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Child and Adolescent Development">Child and Adolescent Development</option>
+            <option value="Civil Engineering">Civil Engineering</option>
+            <option value="Communications">Communications</option>
+            <option value="Communicative Disorders">Communicative Disorders</option>
+            <option value="Comparative Literature">Comparative Literature</option>
+            <option value="Computer Engineering">Computer Engineering</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Criminal Justice">Criminal Justice</option>
+            <option value="Dance">Dance</option>
+            <option value="Economics">Economics</option>
+            <option value="Electrical Engineering">Electrical Engineering</option>
+            <option value="English">English</option>
+            <option value="Ethnic Studies">Ethnic Studies</option>
+            <option value="European Studies">European Studies</option>
+            <option value="French">French</option>
+            <option value="Geography">Geography</option>
+            <option value="Geology">Geology</option>
+            <option value="Health Science">Health Science</option>
+            <option value="History">History</option>
+            <option value="Human Services">Human Services</option>
+            <option value="International Business">International Business</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Kinesiology">Kinesiology</option>
+            <option value="Latin American Studies">Latin American Studies</option>
+            <option value="Liberal Studies">Liberal Studies</option>
+            <option value="Linguistics">Linguistics</option>
+            <option value="Mathematics">Mathematics</option>
+            <option value="Mechanical Engineering">Mechanical Engineering</option>
+            <option value="Music">Music</option>
+            <option value="Nursing">Nursing</option>
+            <option value="Philosophy">Philosophy</option>
+            <option value="Physics">Physics</option>
+            <option value="Political Science">Political Science</option>
+            <option value="Psychology">Psychology</option>
+            <option value="Public Administration">Public Admistration</option>
+            <option value="Radio-TV-Film">Radio-TV-Film</option>
+            <option value="Religious Studies">Religious Studies</option>
+            <option value="Sociology">Sociology</option>
+            <option value="Spanish">Spanish</option>
+            <option value="Theatre Arts">Theatre Arts</option>
+            <option value="Women's Studies">Women Studies</option>
+        </select><br>
+        
+        <input type="password" name="Password" placeholder="Password"><br>
+        <input type="password" name="ConfirmPassword" placeholder="Confirm Password"><br>
+        
+        <input type="submit"/>
+    </form>
+</div>
 {% endblock %}

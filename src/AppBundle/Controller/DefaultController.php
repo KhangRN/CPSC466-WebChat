@@ -75,18 +75,23 @@ class DefaultController extends Controller
      * @Route("/actions/register", name="registerAction")
      */
     public function registerAction(Request $request){
-        $email = $request->request->get('new-email');
-        $password = $request->request->get('new-password');
+        $first = $request->request->get('FirstName');
+        $last = $request->request->get('LastName');
+        $email = $request->request->get('Email');
+        $password = $request->request->get('Password');
+        $major = $request->request->get('Major');
         
-        if(empty($email) || empty($password)){
-            return $this->render('register.html.twig', array('error' => "Missing email or password"));
+        if(empty($email) || empty($password) || empty($first) || empty($last) || empty($major)){
+            return $this->render('register.html.twig', array('error' => "Missing required fields"));
         }
         else{
             $em = $this->getDoctrine()->getManager('default');
             $u = new Users();
             $u->setUsername($email);
             $u->setPassword($password);
-            $u->setFirstname('New User');
+            $u->setFirstname($first);
+            $u->setLastName($last);
+            $u->setMajor($major);
             $em->persist($u);
             $em->flush();
             $uid = $u->getUserId();

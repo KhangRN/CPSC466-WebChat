@@ -42,6 +42,20 @@ class Users
      */
     private $firstname;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lastname", type="string", length=255, nullable=true)
+     */
+    private $lastname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="major", type="string", length=255, nullable=false)
+     */
+    private $major;
+
 
 
     /**
@@ -114,6 +128,54 @@ class Users
     public function getFirstname()
     {
         return $this->firstname;
+    }
+
+    /**
+     * Set lastname
+     *
+     * @param string $lastname
+     *
+     * @return Users
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    /**
+     * Get lastname
+     *
+     * @return string
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * Set major
+     *
+     * @param string $major
+     *
+     * @return Users
+     */
+    public function setMajor($major)
+    {
+        $this->major = $major;
+
+        return $this;
+    }
+
+    /**
+     * Get major
+     *
+     * @return string
+     */
+    public function getMajor()
+    {
+        return $this->major;
     }
 
     /**
