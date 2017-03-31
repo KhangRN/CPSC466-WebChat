@@ -74,6 +74,7 @@ class DefaultController extends Controller
                 return $this->redirectToRoute('privatePage');
             }
             else{
+                //need to set this to a redirect with parameters
                 return $this->render('login.html.twig', array('error' => "Invalid email or password"));
             }
         }
