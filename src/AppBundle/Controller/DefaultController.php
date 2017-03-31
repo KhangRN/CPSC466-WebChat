@@ -12,6 +12,14 @@ use Symfony\Component\VarDumper\VarDumper;
 
 class DefaultController extends Controller
 {   
+    
+    /**
+     * @Route("/", name="index")
+     */
+    public function indexAction(){
+        return $this->redirectToRoute('loginPage');
+    }
+    
     /**
      * @Route("/register", name="registerPage")
      */
