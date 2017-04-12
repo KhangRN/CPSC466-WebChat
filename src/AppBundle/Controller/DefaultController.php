@@ -43,19 +43,23 @@ class DefaultController extends Controller
     /**
      * @Route("/actions/login", name="loginAction")
      */
-    public function loginAction(Request $request){
+    public function loginAction(Request $request)
+    {
         $em = $this->getDoctrine()->getManager();
         
         $email = $request->request->get('email');
         $password = $request->request->get('password');
         
         //check to ensure we have both require POST parameters
-        if(empty($email) || empty($password)){
+        if(empty($email) || empty($password))
+        {
             return $this->render('login.html.twig', array('error' => "Invalid email or password"));
         }
-        else{
+        else
+        {
             $user = $em->getRepository('AppBundle:Users')->findOneBy(array('username' => $email));
-            if(empty($user)){
+            if(empty($user))
+            {
                 return $this->render('login.html.twig', array('error' => "Invalid email or password"));
             }
             //TO-DO: implement session timeout after ~5 minutes
@@ -65,7 +69,8 @@ class DefaultController extends Controller
                 $session->set('uid', $uid);
                 return $this->redirectToRoute('privatePage');
             }
-            else{
+            else
+            {
                 return $this->render('login.html.twig', array('error' => "Invalid email or password"));
             }
         }
@@ -81,7 +86,8 @@ class DefaultController extends Controller
         $password = $request->request->get('Password');
         $major = $request->request->get('Major');
         
-        if(empty($email) || empty($password) || empty($first) || empty($last) || empty($major)){
+        if(empty($email) || empty($password) || empty($first) || empty($last) || empty($major))
+        {
             return $this->render('register.html.twig', array('error' => "Missing required fields"));
         }
         else{

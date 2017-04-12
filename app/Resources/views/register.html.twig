@@ -39,13 +39,13 @@ input[type=submit] {
 {% endif %}
 
 <div align="center">
-    <form method="POST" action="{{ url('registerAction') }}">
+    <form name='registration' method="POST" action="{{ url('registerAction') }}">
         
-        <input type="text" name="FirstName" placeholder="First Name"><br>
-        <input type="text" name="LastName" placeholder="Last Name"><br>
+        <input type="text" name="FirstName" id="FirstName" placeholder="First Name"><div id="firstTest"></div>
+        <input type="text" name="LastName" id="LastName" placeholder="Last Name"><div id="lastTest"></div>
 
         <!--Email Text Box-->
-        <input type="text" name="Email" placeholder="Email @csu.fullerton.edu"><br>
+        <input type="text" name="Email" id="Email" placeholder="Email@csu.fullerton.edu"><div id="emailTest"></div>
         
         <!--input type="text" name="new-email" placeholder="email"/>
         <input type="password" name="new-password" placeholder="password"/-->
@@ -101,10 +101,18 @@ input[type=submit] {
             <option value="Women's Studies">Women Studies</option>
         </select><br>
         
-        <input type="password" name="Password" placeholder="Password"><br>
-        <input type="password" name="ConfirmPassword" placeholder="Confirm Password"><br>
+        <input type="password" name="Password" id="Password" placeholder="Password"><div id="passTest"></div>
+        <input type="password" name="ConfirmPassword" id="ConfirmPassword" placeholder="Confirm Password"><div id="passConfirmTest"></div>
         
-        <input type="submit"/>
+        <input type="submit" id="submitRegister"/>
     </form>
 </div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+
+<script src="{{ asset('js/register.js') }}"></script>
+
 {% endblock %}
