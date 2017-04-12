@@ -25,59 +25,76 @@ Password.addEventListener("mouseover", valueCheck);
 ConfirmPassword.addEventListener("mouseover", valueCheck);
 submitButton.addEventListener("mouseover", valueCheck);
 
+//Listen for Mouse Out
+FirstName.addEventListener("mouseout", valueCheck);
+LastName.addEventListener("mouseout", valueCheck);
+Email.addEventListener("mouseout", valueCheck);
+Password.addEventListener("mouseout", valueCheck);
+ConfirmPassword.addEventListener("mouseout", valueCheck);
+submitButton.addEventListener("mouseout", valueCheck);
 
 //Master Check
 function valueCheck()
 {
 	//Check First Name
-	if(allLetter(FirstName)){
-		document.getElementById("firstTest").style.color = "#00ff00";
-		document.getElementById("firstTest").textContent = 'First Name Passed';
-	}
-	else{
-		document.getElementById("firstTest").style.color = "#ff0000";
-		document.getElementById("firstTest").textContent = 'First Name Failed! Must only be Letters';
+	if(FirstName.value!=""){
+		if(allLetter(FirstName)){
+			document.getElementById("firstTest").style.color = "#00ff00";
+			document.getElementById("firstTest").textContent = 'First Name Passed';
+		}
+		else{
+			document.getElementById("firstTest").style.color = "#ff0000";
+			document.getElementById("firstTest").textContent = 'First Name Failed! Must only be Letters';
+		}
 	}
 	
 	//Check Last Name
-	if(allLetter(LastName)){
-		document.getElementById("lastTest").style.color = "#00ff00";
-		document.getElementById("lastTest").textContent = 'Last Name Passed';
-	}
-	else{
-		document.getElementById("lastTest").style.color = "#ff0000";
-		document.getElementById("lastTest").textContent = 'Last Name Failed! Must only be Letters';
+	if(LastName.value!=""){
+		if(allLetter(LastName)){
+			document.getElementById("lastTest").style.color = "#00ff00";
+			document.getElementById("lastTest").textContent = 'Last Name Passed';
+		}
+		else{
+			document.getElementById("lastTest").style.color = "#ff0000";
+			document.getElementById("lastTest").textContent = 'Last Name Failed! Must only be Letters';
+		}
 	}
 	
 	//Check Email
-	if(ValidateEmail(Email)){
-		document.getElementById("emailTest").style.color = "#00ff00";
-		document.getElementById("emailTest").textContent = 'Valid Cal State Fullerton Email';
-	}
-	else{
-		document.getElementById("emailTest").style.color = "#ff0000";
-		document.getElementById("emailTest").textContent = 'Invalid Cal State Fullerton Email';
+	if(Email.value!=""){
+		if(ValidateEmail(Email)){
+			document.getElementById("emailTest").style.color = "#00ff00";
+			document.getElementById("emailTest").textContent = 'Valid Cal State Fullerton Email';
+		}
+		else{
+			document.getElementById("emailTest").style.color = "#ff0000";
+			document.getElementById("emailTest").textContent = 'Invalid Cal State Fullerton Email';
+		}
 	}
 	
 	//Check Password
-	if(passid_validation(Password,7,12)){
-		document.getElementById("passTest").style.color = "#00ff00";
-		document.getElementById("passTest").textContent = 'Password Passed';
-	}
-	else{
-		document.getElementById("passTest").style.color = "#ff0000";
-		document.getElementById("passTest").textContent = 'Password Failed with need between 7 to 12 characters';
+	if(Password.value!=""){
+		if(passid_validation(Password,7,12)){
+			document.getElementById("passTest").style.color = "#00ff00";
+			document.getElementById("passTest").textContent = 'Password Passed';
+		}
+		else{
+			document.getElementById("passTest").style.color = "#ff0000";
+			document.getElementById("passTest").textContent = 'Password Failed with need between 7 to 12 characters';
+		}
 	}
 	
 	//Check Confirm Password
-	if(Password.value==ConfirmPassword.value)
-	{
-		document.getElementById("passConfirmTest").style.color = "#00ff00";
-		document.getElementById("passConfirmTest").textContent = 'Matches Password';
-	}
-	else{
-		document.getElementById("passConfirmTest").style.color = "#ff0000";
-		document.getElementById("passConfirmTest").textContent = 'Does Not Match Password';
+	if(ConfirmPassword.value!=""){
+		if(Password.value==ConfirmPassword.value)
+		{
+			document.getElementById("passConfirmTest").style.color = "#00ff00";
+			document.getElementById("passConfirmTest").textContent = 'Matches Password';
+		}
+		else{
+			document.getElementById("passConfirmTest").style.color = "#ff0000";
+			document.getElementById("passConfirmTest").textContent = 'Does Not Match Password';
+		}
 	}
 	
 }
