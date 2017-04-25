@@ -1,0 +1,54 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Messages
+ *
+ * @ORM\Table(name="messages")
+ * @ORM\Entity
+ */
+class Messages
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="message_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $messageId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="sender_id", type="integer", nullable=false)
+     */
+    private $senderId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="receiver_id", type="integer", nullable=false)
+     */
+    private $receiverId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="content", type="string", length=45, nullable=false)
+     */
+    private $content;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
+     */
+    private $timestamp;
+
+
+}
+

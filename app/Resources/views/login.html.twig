@@ -13,20 +13,27 @@
 {% block body %}
 
 {% if error is defined %}
-<h3 align="center">{{error}}</h3>
+<h3 class="text-center form-error">{{error}}</h3>
 {% endif %}
 
-<h1 class="text-center">CSUF Chat App</h1>
+<h1 class="text-center" style="color: white;">CSUF Chat App</h1>
 
 <div class="container">
         <div class="card card-container">
-            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <!--img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" /-->
+            <img id="profile-img" class="profile-img-card" src="{{ asset('images/tuffy.png')}}"/>
+            
             <p id="profile-name" class="profile-name-card"></p>
-            <form class="form-signin" method="POST" action="{{ url('loginAction') }}">
+            <form class="form-signin" id="login-form" method="POST" action="{{ url('loginAction') }}">
                 <span id="reauth-email" class="reauth-email"></span>
+                <span id="email-error">*Must be a valid CSUF email</span>
                 <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <span id="password-error">*Please enter your password</span>
                 <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="button" onClick="loginButton()">Sign in</button>
+                <a href="{{ url('registerPage')}}" class="register-link">
+                    Don't have an account? Sign up
+                </a>
             </form>
         </div>
     </div>

@@ -1,0 +1,170 @@
+.friend-card{
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    padding: 8px;
+}
+
+#alerts{
+    position: relative;
+    z-index: 1000;
+}
+
+#friends-list{
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom:0;
+    width: 150px;
+    background-color: #01274C;
+    overflow-y: auto;
+}
+
+#dashboard-content{
+    position: absolute;
+    left: 150px;
+    right: 150px;
+    top: 0;
+    bottom: 0;
+    background-color: #f0f5f5;
+}
+
+#messages-list{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 150px;
+    background-color: #01274C;
+    color: white;
+    overflow-y: auto;
+}
+
+#dashboard-header{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 80px;
+}
+
+#dashboard-title{
+    margin-top: 64px;
+}
+
+#dashboard-info{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 200px;
+    background-color: red;
+}
+
+#greeting{
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-size: 16px;
+}
+
+#signout{
+    position: absolute;
+    top: 12px;
+    right: 16px;
+}
+
+#no-friends{
+    text-align: center;
+    width: 90%;
+    height: 100px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+}
+
+#no-messages{
+    text-align: center;
+    width: 90%;
+    height: 100px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+}
+
+#message-box{
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    right: 0;
+}
+
+#message-box input{
+    margin-left: 16px;
+    max-width: 60%;
+    display: inline-block;
+}
+
+#message-box button{
+    position:absolute;
+    right: 12px;
+    top: 2px;
+    display: inline-block;
+}
+
+.selected-friend{
+    background-color: #428bca;
+    color: white;
+}
+
+.message-from{
+    text-align:left;
+    padding-left: 8px;
+}
+
+.message-content-from{
+    margin-left: 8px;
+    margin-right: 8px;
+    font-size: 12px;
+    border-bottom: 1px solid black;
+    text-align: left;
+}
+
+.message-to{
+    text-align: right;
+    padding-right: 8px;
+}
+
+.message-content-to{
+    margin-left: 8px;
+    margin-right: 8px;
+    font-size: 12px;
+    text-align: right;
+    border-bottom: 1px solid black;
+}
+
+
+
+
+#friend-add-button{
+    position: absolute;
+    bottom: 16px;
+    left: 12px;
+}
+
+.messages-target{
+    color: white;
+    text-align: center;
+    padding: 4px;
+}
+
+.messages-target.set{
+    border-bottom: 0.75px solid black;
+}

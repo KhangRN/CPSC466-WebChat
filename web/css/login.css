@@ -1,6 +1,7 @@
 .card-container.card {
     max-width: 350px;
     padding: 40px 40px;
+    background-color: white;
 }
 
 .btn {
@@ -14,11 +15,9 @@
 
 .card {
     background-color: #F7F7F7;
-    /* just in case there no content*/
     padding: 20px 25px 30px;
     margin: 0 auto 25px;
     margin-top: 50px;
-    /* shadows and rounded borders */
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
     border-radius: 2px;
@@ -28,13 +27,13 @@
 }
 
 .profile-img-card {
-    width: 96px;
-    height: 96px;
+    width: 150px;
+    height: 150px;
     margin: 0 auto 10px;
     display: block;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
-    border-radius: 50%;
+    border-radius: 25%;
 }
 
 .profile-name-card {
@@ -109,4 +108,22 @@
 .btn.btn-signin:focus {
     background-color: #5cb85c;
     cursor: pointer;
+}
+
+.register-link {
+    color: rgb(104, 145, 162);
+}
+
+.form-error{
+    color: #d9534f;
+}
+
+#email-error{
+    color: red;
+    display: none;
+}
+
+#password-error{
+    color: red;
+    display: none;
 }

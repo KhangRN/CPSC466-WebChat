@@ -1,0 +1,8 @@
+.error-span{
+    color: red;
+    display: none;
+}
+
+#register-form{
+    max-width: 50%;
+}

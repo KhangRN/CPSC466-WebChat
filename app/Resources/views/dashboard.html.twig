@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/dashboard.css')}}">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        var userid = "{{ user.userid }}";
+        var first = "{{ user.firstName }}";
+        var selectedUser = "{{ selectedFriendId }}";
+    </script>
+    <script src="{{asset('js/socket.io.min.js')}}"></script>
+    <script src="{{asset('js/dashboard.js')}}"></script>
+{% endblock %}
+
+{% block body %}
+    <div id="friends-list">
+        {% if friends|length == 0 %}
+            <div id="no-friends">
+                You have no friends 
+                <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#add-friend-modal"></button> 
+            </div>
+        {% else %}
+            <div>
+                {% for friend in friends %}
+                    <div class="friend-card" id="friend-{{ friend.userid }}">
+                        {{ friend.firstname }} {{ friend.lastname }}
+                    </div>
+                {% endfor %}
+            </div>
+            <button type="button" class="btn btn-sm btn-primary" id="friend-add-button" data-toggle="modal" data-target="#add-friend-modal">
+                <span class="glyphicon glyphicon-user"></span>
+                <span class="glyphicon glyphicon-plus-sign"></span>
+            </button>
+        {% endif %}
+    </div>
+    <div id="dashboard-content">
+        <div id="dashboard-header">
+            <h1 id="dashboard-title" class="text-center">Dashboard</h1>
+            <p id="greeting"> Hello, {{ user.firstName }} </p>
+            <button type="button" id="signout" class="btn btn-sm btn-primary" 
+                onClick="signOut('{{ url('signOutAction') }}')">
+                Sign Out
+            </button>
+            <div id="alerts"></div>
+        </div>
+        <div id="message-box">
+            <input type="text" id="msg-content" placeholder="Message" class="form-control"/>
+            <button type="button" class="btn btn-sm btn-primary" onClick="sendMessage()">Send</button>
+        </div>
+    </div>
+    <div id="messages-list">
+        <div class="messages-target"></div>
+        {% if messages|length == 0 %}
+            <div id="no-messages">
+                You have no messages
+            </div>
+        {% else %}
+        {% for message in messages %}
+            {% if message.senderId == user.userid %}
+            <div class="message-item">
+                <div class="message-to">You</div>
+                <div class="message-content-to">
+                    {{message.content}}
+                </div>
+            </div>
+            {% else %}
+            {% set friendName = selectedFriend.firstName %}
+            {% set friendName = friendName ~ ' '  %}
+            {% set friendName = friendName ~ selectedFriend.lastName %}
+            <div class="message-item">
+                <div class="message-from">{{friendName}}</div>
+                <div class="message-content-from">
+                    {{message.content}}
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+        {% endif %}
+    </div>
+
+    <div id="add-friend-modal" class="modal fade" role="dialog" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                    <h3>Add a new friend</h3>
+                </div>
+                <div class="modal-body">
+                    Type their email here:
+                    <input type="text" id="add-friend-email" class="form-control" placeholder="Email"/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onClick="addFriend('{{ url('addFriendAction') }}')" data-dismiss="modal">
+                        Confirm
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
