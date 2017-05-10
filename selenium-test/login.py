@@ -19,7 +19,6 @@ def testHappyPath(driver):
 
 
 def testBadPath(driver):
-    driver = webdriver.Chrome("C:/Users/rhoang/Desktop/selenium/chromedriver.exe")
     driver.get('http://origincommodity.com/login')
     time.sleep(5)
     login = driver.find_element_by_id("inputEmail")
@@ -32,10 +31,10 @@ def testBadPath(driver):
     signinBtn.click()
 
 def switch(case,driver):
-    return{
-        1: testHappyPath(driver),
-        2: testBadPath(driver,)
-    }[case]
+    if case == 1:
+      testHappyPath(driver)
+    elif case == 2:
+      testBadPath(driver)
 
 def main():
 
@@ -45,7 +44,7 @@ def main():
 
     #********************************************************************#
     # change driver path before running
-    driver = webdriver.Chrome("C:/Users/rhoang/Desktop/selenium/chromedriver.exe")
+    driver = webdriver.Chrome("C:/Users/Roger/Desktop/CPSC466-WebChat/selenium-test/chromedriver.exe")
 
     print("MENU")
     print("1. Happy Path Test Case")
