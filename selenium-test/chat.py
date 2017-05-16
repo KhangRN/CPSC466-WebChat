@@ -7,7 +7,7 @@ from selenium import webdriver
 
 def testHappyPath(driver):
 
-    time.sleep(30)
+    time.sleep(5)
     # goto /register
     driver.get('http://origincommodity.com/register')
     time.sleep(5)
@@ -17,9 +17,9 @@ def testHappyPath(driver):
     password = driver.find_element_by_id("password-input")
     password_confirm = driver.find_element_by_id("password-match-input")
 
-    firstname.send_keys("test3")
-    lastname.send_keys("guy3")
-    email.send_keys("testguy4@csu.fullerton.edu")
+    firstname.send_keys("testguy7")
+    lastname.send_keys("guy7")
+    email.send_keys("testguy7@csu.fullerton.edu")
     password.send_keys("password")
     password_confirm.send_keys("password")
 
@@ -40,7 +40,7 @@ def testHappyPath(driver):
     loginLogin = driver.find_element_by_id("inputEmail")
     passwordLogin = driver.find_element_by_id("inputPassword")
 
-    loginLogin.send_keys('testguy4@csu.fullerton.edu')
+    loginLogin.send_keys('testguy7@csu.fullerton.edu')
     passwordLogin.send_keys('password')
     # loginLogin.send_keys('testguy2@csu.fullerton.edu')
     # passwordLogin.send_keys('password')
@@ -75,7 +75,7 @@ def testHappyPath(driver):
     sendmessageBtn.click()
 
 
-    time.sleep(30)
+    time.sleep(5)
 
 
 
